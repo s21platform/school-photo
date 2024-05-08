@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "./school-proto";
+
+// Этот сервис предоставляет методы для запросов на школьную платформу.
+service SchoolService {
+    // Метод для получения токена sberclass, которым будут подписаны запросы к платформе
+    rpc Login (LoginRequest) returns (LoginResponse) {}
+}
+
+// Запрос на авторизацию
+message LoginRequest {
+    // email от edu.21-school.ru формата nickname@student.21-school.ru
+    string email = 1;
+    // Пароль пользователя от edu.21-school.ru
+    string password = 2;
+}
+
+
+// Ответ на запрос авторизации
+message LoginResponse {
+    // Авторизационный токен JWT
+    string token = 1;
+}
