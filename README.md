@@ -4,8 +4,8 @@
 ## Table of Contents
 
 - [school.proto](#school-proto)
-    - [LoginRequest](#-LoginRequest)
-    - [LoginResponse](#-LoginResponse)
+    - [SchoolLoginRequest](#-SchoolLoginRequest)
+    - [SchoolLoginResponse](#-SchoolLoginResponse)
   
     - [SchoolService](#-SchoolService)
   
@@ -20,9 +20,9 @@
 
 
 
-<a name="-LoginRequest"></a>
+<a name="-SchoolLoginRequest"></a>
 
-### LoginRequest
+### SchoolLoginRequest
 Запрос на авторизацию
 
 
@@ -36,9 +36,9 @@
 
 
 
-<a name="-LoginResponse"></a>
+<a name="-SchoolLoginResponse"></a>
 
-### LoginResponse
+### SchoolLoginResponse
 Ответ на запрос авторизации
 
 
@@ -64,7 +64,7 @@
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| Login | [.LoginRequest](#LoginRequest) | [.LoginResponse](#LoginResponse) | Метод для получения токена sberclass, которым будут подписаны запросы к платформе |
+| Login | [.SchoolLoginRequest](#SchoolLoginRequest) | [.SchoolLoginResponse](#SchoolLoginResponse) | Метод для получения токена sberclass, которым будут подписаны запросы к платформе |
 
  
 

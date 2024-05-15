@@ -5,11 +5,11 @@ option go_package = "./school-proto";
 // Этот сервис предоставляет методы для запросов на школьную платформу.
 service SchoolService {
     // Метод для получения токена sberclass, которым будут подписаны запросы к платформе
-    rpc Login (LoginRequest) returns (LoginResponse) {}
+    rpc Login (SchoolLoginRequest) returns (SchoolLoginResponse) {}
 }
 
 // Запрос на авторизацию
-message LoginRequest {
+message SchoolLoginRequest {
     // email от edu.21-school.ru формата nickname@student.21-school.ru
     string email = 1;
     // Пароль пользователя от edu.21-school.ru
@@ -18,7 +18,7 @@ message LoginRequest {
 
 
 // Ответ на запрос авторизации
-message LoginResponse {
+message SchoolLoginResponse {
     // Авторизационный токен JWT
     string token = 1;
 }

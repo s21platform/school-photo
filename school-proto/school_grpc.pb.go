@@ -27,7 +27,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SchoolServiceClient interface {
 	// Метод для получения токена sberclass, которым будут подписаны запросы к платформе
-	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
+	Login(ctx context.Context, in *SchoolLoginRequest, opts ...grpc.CallOption) (*SchoolLoginResponse, error)
 }
 
 type schoolServiceClient struct {
@@ -38,8 +38,8 @@ func NewSchoolServiceClient(cc grpc.ClientConnInterface) SchoolServiceClient {
 	return &schoolServiceClient{cc}
 }
 
-func (c *schoolServiceClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error) {
-	out := new(LoginResponse)
+func (c *schoolServiceClient) Login(ctx context.Context, in *SchoolLoginRequest, opts ...grpc.CallOption) (*SchoolLoginResponse, error) {
+	out := new(SchoolLoginResponse)
 	err := c.cc.Invoke(ctx, SchoolService_Login_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -52,7 +52,7 @@ func (c *schoolServiceClient) Login(ctx context.Context, in *LoginRequest, opts 
 // for forward compatibility
 type SchoolServiceServer interface {
 	// Метод для получения токена sberclass, которым будут подписаны запросы к платформе
-	Login(context.Context, *LoginRequest) (*LoginResponse, error)
+	Login(context.Context, *SchoolLoginRequest) (*SchoolLoginResponse, error)
 	mustEmbedUnimplementedSchoolServiceServer()
 }
 
@@ -60,7 +60,7 @@ type SchoolServiceServer interface {
 type UnimplementedSchoolServiceServer struct {
 }
 
-func (UnimplementedSchoolServiceServer) Login(context.Context, *LoginRequest) (*LoginResponse, error) {
+func (UnimplementedSchoolServiceServer) Login(context.Context, *SchoolLoginRequest) (*SchoolLoginResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
 func (UnimplementedSchoolServiceServer) mustEmbedUnimplementedSchoolServiceServer() {}
@@ -77,7 +77,7 @@ func RegisterSchoolServiceServer(s grpc.ServiceRegistrar, srv SchoolServiceServe
 }
 
 func _SchoolService_Login_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LoginRequest)
+	in := new(SchoolLoginRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -89,7 +89,7 @@ func _SchoolService_Login_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: SchoolService_Login_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchoolServiceServer).Login(ctx, req.(*LoginRequest))
+		return srv.(SchoolServiceServer).Login(ctx, req.(*SchoolLoginRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
