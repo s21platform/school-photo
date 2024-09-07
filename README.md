@@ -4,8 +4,11 @@
 ## Table of Contents
 
 - [school.proto](#school-proto)
+    - [CampusUuidIn](#-CampusUuidIn)
     - [SchoolLoginRequest](#-SchoolLoginRequest)
     - [SchoolLoginResponse](#-SchoolLoginResponse)
+    - [Tribe](#-Tribe)
+    - [TribesOut](#-TribesOut)
   
     - [SchoolService](#-SchoolService)
   
@@ -17,6 +20,21 @@
 <p align="right"><a href="#top">Top</a></p>
 
 ## school.proto
+
+
+
+<a name="-CampusUuidIn"></a>
+
+### CampusUuidIn
+Запрос на получение всех трайбов кампуса
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| campus_uuid | [string](#string) |  | Uuid кампуса, который призходит от community сервиса |
+
+
+
 
 
 
@@ -50,6 +68,37 @@
 
 
 
+
+<a name="-Tribe"></a>
+
+### Tribe
+Сообщение для выходных данных
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int32](#int32) |  | id тайба |
+| name | [string](#string) |  | Название трайба |
+
+
+
+
+
+
+<a name="-TribesOut"></a>
+
+### TribesOut
+Ответ на запрос на получение всех трайбов кампуса
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| tribes | [Tribe](#Tribe) | repeated | Список трайбов |
+
+
+
+
+
  
 
  
@@ -65,6 +114,7 @@
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | Login | [.SchoolLoginRequest](#SchoolLoginRequest) | [.SchoolLoginResponse](#SchoolLoginResponse) | Метод для получения токена sberclass, которым будут подписаны запросы к платформе |
+| GetTribesByCampusUuid | [.CampusUuidIn](#CampusUuidIn) | [.TribesOut](#TribesOut) |  |
 
  
 
