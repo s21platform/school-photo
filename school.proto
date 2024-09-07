@@ -6,6 +6,7 @@ option go_package = "./school-proto";
 service SchoolService {
     // Метод для получения токена sberclass, которым будут подписаны запросы к платформе
     rpc Login (SchoolLoginRequest) returns (SchoolLoginResponse) {}
+    rpc GetTribesByCampusUuid (CampusUuidIn) returns (TribesOut) {}
 }
 
 // Запрос на авторизацию
@@ -15,10 +16,27 @@ message SchoolLoginRequest {
     // Пароль пользователя от edu.21-school.ru
     string password = 2;
 }
-
-
 // Ответ на запрос авторизации
 message SchoolLoginResponse {
     // Авторизационный токен JWT
     string token = 1;
+}
+
+
+// Запрос на получение всех трайбов кампуса
+message CampusUuidIn {
+    // Uuid кампуса, который призходит от community сервиса
+    string campus_uuid = 1;
+}
+// Сообщение для выходных данных
+message Tribe {
+    // id  тайба
+    int32 id = 1;
+    // Название трайба
+    string name = 2;
+}
+// Ответ на запрос на получение всех трайбов кампуса
+message TribesOut {
+    // Список трайбов
+    repeated Tribe tribes = 1;
 }
