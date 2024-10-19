@@ -24,16 +24,21 @@ message SchoolLoginResponse {
     string token = 1;
 }
 
+
 // Запрос на получение всех кампусов
 message Empty {}
-// Ответ на запрос с данными кампуса
-message CampusesOut {
+// Сообщение для выходных данных
+message Campus {
     // Uuid кампуса
     string campusUuid = 1;
     // Сокращенное название кампуса
     string shortName = 2;
     // Полное название кампуса
     string fullName = 3;
+}
+// Ответ на запрос на получение всех кампусов
+message CampusesOut {
+    repeated Campus campuses = 1;
 }
 
 
