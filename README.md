@@ -4,6 +4,7 @@
 ## Table of Contents
 
 - [school.proto](#school-proto)
+    - [Campus](#-Campus)
     - [CampusUuidIn](#-CampusUuidIn)
     - [CampusesOut](#-CampusesOut)
     - [Empty](#-Empty)
@@ -25,6 +26,23 @@
 
 
 
+<a name="-Campus"></a>
+
+### Campus
+Сообщение для выходных данных
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| campusUuid | [string](#string) |  | Uuid кампуса |
+| shortName | [string](#string) |  | Сокращенное название кампуса |
+| fullName | [string](#string) |  | Полное название кампуса |
+
+
+
+
+
+
 <a name="-CampusUuidIn"></a>
 
 ### CampusUuidIn
@@ -43,14 +61,12 @@
 <a name="-CampusesOut"></a>
 
 ### CampusesOut
-Ответ на запрос с данными кампуса
+Ответ на запрос на получение всех кампусов
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| campusUuid | [string](#string) |  | Uuid кампуса |
-| shortName | [string](#string) |  | Сокращенное название кампуса |
-| fullName | [string](#string) |  | Полное название кампуса |
+| campuses | [Campus](#Campus) | repeated |  |
 
 
 
