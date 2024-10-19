@@ -5,6 +5,8 @@
 
 - [school.proto](#school-proto)
     - [CampusUuidIn](#-CampusUuidIn)
+    - [CampusesOut](#-CampusesOut)
+    - [Empty](#-Empty)
     - [SchoolLoginRequest](#-SchoolLoginRequest)
     - [SchoolLoginResponse](#-SchoolLoginResponse)
     - [Tribe](#-Tribe)
@@ -32,6 +34,33 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | campus_uuid | [string](#string) |  | Uuid кампуса, который призходит от community сервиса |
+
+
+
+
+
+
+<a name="-CampusesOut"></a>
+
+### CampusesOut
+Ответ на запрос с данными кампуса
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| campusUuid | [string](#string) |  | Uuid кампуса |
+| shortName | [string](#string) |  | Сокращенное название кампуса |
+| fullName | [string](#string) |  | Полное название кампуса |
+
+
+
+
+
+
+<a name="-Empty"></a>
+
+### Empty
+Запрос на получение всех кампусов
 
 
 
@@ -114,6 +143,7 @@
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | Login | [.SchoolLoginRequest](#SchoolLoginRequest) | [.SchoolLoginResponse](#SchoolLoginResponse) | Метод для получения токена sberclass, которым будут подписаны запросы к платформе |
+| GetCampuses | [.Empty](#Empty) | [.CampusesOut](#CampusesOut) | Методы для получения данных с API школы |
 | GetTribesByCampusUuid | [.CampusUuidIn](#CampusUuidIn) | [.TribesOut](#TribesOut) |  |
 
  
