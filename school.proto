@@ -6,6 +6,8 @@ option go_package = "./school-proto";
 service SchoolService {
     // Метод для получения токена sberclass, которым будут подписаны запросы к платформе
     rpc Login (SchoolLoginRequest) returns (SchoolLoginResponse) {}
+    // Методы для получения данных с API школы
+    rpc GetCampuses (Empty) returns (CampusesOut) {}
     rpc GetTribesByCampusUuid (CampusUuidIn) returns (TribesOut) {}
 }
 
@@ -20,6 +22,18 @@ message SchoolLoginRequest {
 message SchoolLoginResponse {
     // Авторизационный токен JWT
     string token = 1;
+}
+
+// Запрос на получение всех кампусов
+message Empty {}
+// Ответ на запрос с данными кампуса
+message CampusesOut {
+    // Uuid кампуса
+    string campus_uuid = 1;
+    // Сокращенное название кампуса
+    string shortName = 2;
+    // Полное название кампуса
+    string fullName = 3;
 }
 
 
