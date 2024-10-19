@@ -48,7 +48,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| campus_uuid | [string](#string) |  | Uuid кампуса |
+| campusUuid | [string](#string) |  | Uuid кампуса |
 | shortName | [string](#string) |  | Сокращенное название кампуса |
 | fullName | [string](#string) |  | Полное название кампуса |
 

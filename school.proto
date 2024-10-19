@@ -29,7 +29,7 @@ message Empty {}
 // Ответ на запрос с данными кампуса
 message CampusesOut {
     // Uuid кампуса
-    string campus_uuid = 1;
+    string campusUuid = 1;
     // Сокращенное название кампуса
     string shortName = 2;
     // Полное название кампуса
