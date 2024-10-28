@@ -8,8 +8,8 @@
     - [CampusUuidIn](#-CampusUuidIn)
     - [CampusesOut](#-CampusesOut)
     - [Empty](#-Empty)
-    - [PeerRequest](#-PeerRequest)
-    - [PeerResponse](#-PeerResponse)
+    - [GetPeersIn](#-GetPeersIn)
+    - [GetPeersOut](#-GetPeersOut)
     - [SchoolLoginRequest](#-SchoolLoginRequest)
     - [SchoolLoginResponse](#-SchoolLoginResponse)
     - [Tribe](#-Tribe)
@@ -85,9 +85,9 @@
 
 
 
-<a name="-PeerRequest"></a>
+<a name="-GetPeersIn"></a>
 
-### PeerRequest
+### GetPeersIn
 Запрос на получение списка пиров
 
 
@@ -102,9 +102,9 @@
 
 
 
-<a name="-PeerResponse"></a>
+<a name="-GetPeersOut"></a>
 
-### PeerResponse
+### GetPeersOut
 Ответ на запрос на получение списка пиров
 
 
@@ -195,7 +195,7 @@
 | Login | [.SchoolLoginRequest](#SchoolLoginRequest) | [.SchoolLoginResponse](#SchoolLoginResponse) | Метод для получения токена sberclass, которым будут подписаны запросы к платформе |
 | GetCampuses | [.Empty](#Empty) | [.CampusesOut](#CampusesOut) | Методы для получения данных с API школы |
 | GetTribesByCampusUuid | [.CampusUuidIn](#CampusUuidIn) | [.TribesOut](#TribesOut) |  |
-| GetPeers | [.PeerRequest](#PeerRequest) | [.PeerResponse](#PeerResponse) | Метод для получения списка пиров |
+| GetPeers | [.GetPeersIn](#GetPeersIn) | [.GetPeersOut](#GetPeersOut) | Метод для получения списка пиров |
 
  
 

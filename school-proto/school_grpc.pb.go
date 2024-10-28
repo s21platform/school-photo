@@ -37,7 +37,7 @@ type SchoolServiceClient interface {
 	GetCampuses(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*CampusesOut, error)
 	GetTribesByCampusUuid(ctx context.Context, in *CampusUuidIn, opts ...grpc.CallOption) (*TribesOut, error)
 	// Метод для получения списка пиров
-	GetPeers(ctx context.Context, in *PeerRequest, opts ...grpc.CallOption) (*PeerResponse, error)
+	GetPeers(ctx context.Context, in *GetPeersIn, opts ...grpc.CallOption) (*GetPeersOut, error)
 }
 
 type schoolServiceClient struct {
@@ -78,9 +78,9 @@ func (c *schoolServiceClient) GetTribesByCampusUuid(ctx context.Context, in *Cam
 	return out, nil
 }
 
-func (c *schoolServiceClient) GetPeers(ctx context.Context, in *PeerRequest, opts ...grpc.CallOption) (*PeerResponse, error) {
+func (c *schoolServiceClient) GetPeers(ctx context.Context, in *GetPeersIn, opts ...grpc.CallOption) (*GetPeersOut, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PeerResponse)
+	out := new(GetPeersOut)
 	err := c.cc.Invoke(ctx, SchoolService_GetPeers_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -100,7 +100,7 @@ type SchoolServiceServer interface {
 	GetCampuses(context.Context, *Empty) (*CampusesOut, error)
 	GetTribesByCampusUuid(context.Context, *CampusUuidIn) (*TribesOut, error)
 	// Метод для получения списка пиров
-	GetPeers(context.Context, *PeerRequest) (*PeerResponse, error)
+	GetPeers(context.Context, *GetPeersIn) (*GetPeersOut, error)
 	mustEmbedUnimplementedSchoolServiceServer()
 }
 
@@ -120,7 +120,7 @@ func (UnimplementedSchoolServiceServer) GetCampuses(context.Context, *Empty) (*C
 func (UnimplementedSchoolServiceServer) GetTribesByCampusUuid(context.Context, *CampusUuidIn) (*TribesOut, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTribesByCampusUuid not implemented")
 }
-func (UnimplementedSchoolServiceServer) GetPeers(context.Context, *PeerRequest) (*PeerResponse, error) {
+func (UnimplementedSchoolServiceServer) GetPeers(context.Context, *GetPeersIn) (*GetPeersOut, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPeers not implemented")
 }
 func (UnimplementedSchoolServiceServer) mustEmbedUnimplementedSchoolServiceServer() {}
@@ -199,7 +199,7 @@ func _SchoolService_GetTribesByCampusUuid_Handler(srv interface{}, ctx context.C
 }
 
 func _SchoolService_GetPeers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PeerRequest)
+	in := new(GetPeersIn)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -211,7 +211,7 @@ func _SchoolService_GetPeers_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: SchoolService_GetPeers_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchoolServiceServer).GetPeers(ctx, req.(*PeerRequest))
+		return srv.(SchoolServiceServer).GetPeers(ctx, req.(*GetPeersIn))
 	}
 	return interceptor(ctx, in, info, handler)
 }
