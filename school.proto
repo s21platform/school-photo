@@ -9,6 +9,8 @@ service SchoolService {
     // Методы для получения данных с API школы
     rpc GetCampuses (Empty) returns (CampusesOut) {}
     rpc GetTribesByCampusUuid (CampusUuidIn) returns (TribesOut) {}
+    // Метод для получения списка пиров
+    rpc GetPeers(GetPeersIn) returns (GetPeersOut) {}
 }
 
 // Запрос на авторизацию
@@ -59,3 +61,19 @@ message TribesOut {
     // Список трайбов
     repeated Tribe tribes = 1;
 }
+
+
+ //Запрос на получение списка пиров
+message GetPeersIn {
+    // Uuid кампуса
+    string campusUuid = 1;
+    //Kоличество записей для возвращения
+    int64 limit = 2; 
+    //Смещение 
+    int64 offset = 3;
+}
+
+// Ответ на запрос на получение списка пиров
+message GetPeersOut {
+    repeated string peer = 1; 
+}  
