@@ -133,8 +133,8 @@
 | parallelName | [string](#string) |  |  |
 | expValue | [int64](#int64) |  |  |
 | level | [int32](#int32) |  |  |
-| exp_to_next_level | [int64](#int64) |  |  |
-| campus_uuid | [Campus](#Campus) |  |  |
+| expToNextLevel | [int64](#int64) |  |  |
+| campusUuid | [string](#string) |  |  |
 | status | [string](#string) |  |  |
 | skills | [Skills](#Skills) | repeated |  |
 | peerReviewPoints | [int64](#int64) |  |  |
