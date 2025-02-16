@@ -4,14 +4,18 @@
 ## Table of Contents
 
 - [school.proto](#school-proto)
+    - [Badges](#-Badges)
     - [Campus](#-Campus)
     - [CampusUuidIn](#-CampusUuidIn)
     - [CampusesOut](#-CampusesOut)
     - [Empty](#-Empty)
+    - [GetParticipantDataIn](#-GetParticipantDataIn)
+    - [GetParticipantDataOut](#-GetParticipantDataOut)
     - [GetPeersIn](#-GetPeersIn)
     - [GetPeersOut](#-GetPeersOut)
     - [SchoolLoginRequest](#-SchoolLoginRequest)
     - [SchoolLoginResponse](#-SchoolLoginResponse)
+    - [Skills](#-Skills)
     - [Tribe](#-Tribe)
     - [TribesOut](#-TribesOut)
   
@@ -25,6 +29,23 @@
 <p align="right"><a href="#top">Top</a></p>
 
 ## school.proto
+
+
+
+<a name="-Badges"></a>
+
+### Badges
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  |  |
+| receiptDateTime | [string](#string) |  |  |
+| iconURL | [string](#string) |  |  |
+
+
+
 
 
 
@@ -79,6 +100,47 @@
 
 ### Empty
 Запрос на получение всех кампусов
+
+
+
+
+
+
+<a name="-GetParticipantDataIn"></a>
+
+### GetParticipantDataIn
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| login | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="-GetParticipantDataOut"></a>
+
+### GetParticipantDataOut
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| className | [string](#string) |  |  |
+| parallelName | [string](#string) |  |  |
+| expValue | [int64](#int64) |  |  |
+| level | [int32](#int32) |  |  |
+| expToNextLevel | [int64](#int64) |  |  |
+| campusUuid | [string](#string) |  |  |
+| status | [string](#string) |  |  |
+| skills | [Skills](#Skills) | repeated |  |
+| peerReviewPoints | [int64](#int64) |  |  |
+| peerCodeReviewPoints | [int64](#int64) |  |  |
+| coins | [int64](#int64) |  |  |
+| badges | [Badges](#Badges) | repeated |  |
 
 
 
@@ -148,6 +210,22 @@
 
 
 
+<a name="-Skills"></a>
+
+### Skills
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  |  |
+| points | [int32](#int32) |  |  |
+
+
+
+
+
+
 <a name="-Tribe"></a>
 
 ### Tribe
@@ -196,6 +274,7 @@
 | GetCampuses | [.Empty](#Empty) | [.CampusesOut](#CampusesOut) | Методы для получения данных с API школы |
 | GetTribesByCampusUuid | [.CampusUuidIn](#CampusUuidIn) | [.TribesOut](#TribesOut) |  |
 | GetPeers | [.GetPeersIn](#GetPeersIn) | [.GetPeersOut](#GetPeersOut) | Метод для получения списка пиров |
+| GetParticipantData | [.GetParticipantDataIn](#GetParticipantDataIn) | [.GetParticipantDataOut](#GetParticipantDataOut) | Метод для получения информации о пользователях(пирах) |
 
  
 

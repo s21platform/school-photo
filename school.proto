@@ -11,6 +11,8 @@ service SchoolService {
     rpc GetTribesByCampusUuid (CampusUuidIn) returns (TribesOut) {}
     // Метод для получения списка пиров
     rpc GetPeers(GetPeersIn) returns (GetPeersOut) {}
+    // Метод для получения информации о пользователях(пирах)
+    rpc GetParticipantData(GetParticipantDataIn) returns (GetParticipantDataOut){}
 }
 
 // Запрос на авторизацию
@@ -76,4 +78,35 @@ message GetPeersIn {
 // Ответ на запрос на получение списка пиров
 message GetPeersOut {
     repeated string peer = 1; 
-}  
+}
+
+message GetParticipantDataIn{
+    string login = 1;
+}
+message GetParticipantDataOut {
+    string className = 1;
+    string parallelName = 2;
+    int64 expValue = 3;
+    int32 level = 4;
+    int64 expToNextLevel = 5;
+    string campusUuid  = 6;
+    string status = 7;
+    repeated Skills skills = 8;
+    int64 peerReviewPoints = 9;
+    int64 peerCodeReviewPoints = 10;
+    int64 coins = 11;
+    repeated Badges badges = 12;
+}
+
+
+message Skills{
+    string name = 1;
+    int32 points = 2;
+}
+
+message Badges {
+    string name = 1;
+    string receiptDateTime = 2;
+    string iconURL = 3;
+}
+
