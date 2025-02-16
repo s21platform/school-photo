@@ -88,8 +88,8 @@ message GetParticipantDataOut {
     string parallelName = 2;
     int64 expValue = 3;
     int32 level = 4;
-    int64 exp_to_next_level = 5;
-    Campus campus_uuid  = 6;
+    int64 expToNextLevel = 5;
+    string campusUuid  = 6;
     string status = 7;
     repeated Skills skills = 8;
     int64 peerReviewPoints = 9;
